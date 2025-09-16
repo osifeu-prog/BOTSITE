@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחירי פיתוח בוטים ומוצרי MVP | BotFactory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="פיתוח בוטים ואתרי MVP - תמחור שקוף | BotFactory" />
+    <meta property="og:description" content="התחילו את המסע שלכם בעולם הבוטים והאתרים עם תוכניות מחיר שמתאימות לכל צורך." />
+    <meta property="og:image" content="https://placehold.co/1200x630/4A90E2/ffffff?text=BotFactory" />
+    <meta property="og:url" content="https://your-domain.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <style>
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: #F8FAFC;
+            color: #1A202C;
+            scroll-behavior: smooth;
+        }
+        .pricing-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .icon {
+            width: 4rem;
+            height: 4rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #EBF8FF;
+            color: #4A90E2;
+            border-radius: 9999px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto p-4 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-bold text-blue-600">BotFactory</a>
+            <div class="flex space-x-4 md:space-x-6 text-gray-600 font-semibold">
+                <a href="#demos" class="hover:text-blue-600 transition duration-300">הדגמות</a>
+                <a href="#solutions" class="hover:text-blue-600 transition duration-300">פתרונות</a>
+                <a href="#pricing" class="hover:text-blue-600 transition duration-300">מחירים</a>
+                <a href="#process" class="hover:text-blue-600 transition duration-300">תהליך</a>
+                <a href="#contact" class="hover:text-blue-600 transition duration-300">צרו קשר</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="bg-gray-100 min-h-[80vh] flex items-center justify-center p-8 md:p-12">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <!-- Text Content -->
+            <div class="text-right">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-800 mb-4">
+                    פיתוח בוטים, אתרים ומוצרים דיגיטליים
+                </h1>
+                <p class="text-lg md:text-2xl text-gray-600 mb-8">
+                    מבוטים חכמים ועד אתרי אינטרנט מתקדמים - אנו מפתחים את הכל תחת קורת גג אחת.
+                </p>
+                <a href="#contact" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-blue-700 transition duration-300 shadow-lg">
+                    התחילו את המסע שלכם
+                </a>
+            </div>
+            <!-- Image Placeholder -->
+            <div class="hidden md:flex justify-center">
+                <!-- Image of a person looking at a digital interface with a bot -->
+                <img src="https://placehold.co/600x400/52a8e8/ffffff?text=Developed+Product+Image" alt="Developed Product Image" class="rounded-3xl shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Demos Section -->
+    <section id="demos" class="container mx-auto p-4 md:p-8 mt-12">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800">הדגמות של יכולות הבוטים שלנו</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mt-2">
+                לחצו על הלחצנים כדי לצפות בהדגמה אינטראקטיבית של פעולות הבוט.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- E-commerce Bot Demo Card -->
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-200 text-center">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">בוט חנות אוטומטי</h3>
+                <p class="text-gray-600 mb-4">מציג קטלוג מוצרים ומאפשר ללקוחות לבצע רכישה.</p>
+                <div id="store-demo" class="p-4 bg-gray-100 rounded-lg text-sm text-right min-h-[300px] flex flex-col justify-end">
+                    <!-- Bot responses will be rendered here -->
+                </div>
+                <div class="flex justify-center mt-4 space-x-2">
+                    <button data-action="catalog" class="demo-btn bg-blue-500 text-white py-2 px-4 rounded-full text-sm hover:bg-blue-600 transition">צפה בקטלוג</button>
+                    <button data-action="cart" class="demo-btn bg-gray-500 text-white py-2 px-4 rounded-full text-sm hover:bg-gray-600 transition">הצג עגלה</button>
+                    <button data-action="checkout" class="demo-btn bg-green-500 text-white py-2 px-4 rounded-full text-sm hover:bg-green-600 transition">השלם הזמנה</button>
+                </div>
+            </div>
+
+            <!-- Quiz Bot Demo Card -->
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-200 text-center">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">בוט חידונים וסקרים</h3>
+                <p class="text-gray-600 mb-4">מעביר ידע דרך סקרים אינטראקטיביים.</p>
+                <div id="quiz-demo" class="p-4 bg-gray-100 rounded-lg text-sm text-right min-h-[300px] flex flex-col justify-end">
+                    <!-- Bot responses will be rendered here -->
+                </div>
+                <div class="flex justify-center mt-4 space-x-2">
+                    <button data-action="start-quiz" class="demo-btn bg-blue-500 text-white py-2 px-4 rounded-full text-sm hover:bg-blue-600 transition">התחל חידון</button>
+                </div>
+            </div>
+
+            <!-- AI Assistant Bot Demo Card -->
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-200 text-center">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">בוט עוזר אישי (AI)</h3>
+                <p class="text-gray-600 mb-4">מגיב לשאלות משתמשים בצורה חכמה ואוטומטית.</p>
+                <div id="ai-demo" class="p-4 bg-gray-100 rounded-lg text-sm text-right min-h-[300px] flex flex-col justify-end">
+                    <div class="text-left text-gray-700 bg-gray-200 p-2 rounded-lg mb-2">שלום! איך אוכל לעזור היום?</div>
+                </div>
+                <div class="flex justify-center mt-4">
+                    <input type="text" id="ai-input" placeholder="שאל שאלה..." class="w-full p-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 text-right">
+                    <button id="ai-send" class="bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition mr-2">שלח</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="container mx-auto p-4 md:p-8 mt-12">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800">אפשרויות פיתוח בוטים נוספות</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mt-2">
+                מעבר להדגמות, אלו רק חלק מהפתרונות שאנחנו יכולים לבנות עבורך.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            
+            <!-- E-commerce Bot -->
+            <div class="p-6 bg-white rounded-2xl shadow-lg">
+                <div class="icon mx-auto">
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.107 1.745.829 1.745H19m-7 5a2 2 0 110-4 2 2 0 010 4zm-4 0a2 2 0 110-4 2 2 0 010 4zm-4 0a2 2 0 110-4 2 2 0 010 4z" />
+                    </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-1">בוטי מסחר אלקטרוני</h3>
+                <p class="text-gray-600 text-sm">קבלת תשלומים, ניהול הזמנות אוטומטי, יצירת קטלוג דיגיטלי.</p>
+            </div>
+            
+            <!-- Customer Service Bot -->
+            <div class="p-6 bg-white rounded-2xl shadow-lg">
+                <div class="icon mx-auto">
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                    </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-1">בוטי שירות לקוחות</h3>
+                <p class="text-gray-600 text-sm">מענה אוטומטי לשאלות נפוצות, תמיכה טכנית בסיסית, ניתוב שיחות לנציג.</p>
+            </div>
+
+            <!-- Community Bot -->
+            <div class="p-6 bg-white rounded-2xl shadow-lg">
+                <div class="icon mx-auto">
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20v-2a4 4 0 00-4-4H9a4 4 0 00-4 4v2m3-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-1">בוטי קהילה</h3>
+                <p class="text-gray-600 text-sm">ניהול קבוצות, חסימת ספאם, עריכת סקרים, שליחת עדכונים לחברי הקבוצה.</p>
+            </div>
+
+            <!-- News & Content Bot -->
+            <div class="p-6 bg-white rounded-2xl shadow-lg">
+                <div class="icon mx-auto">
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v2m0 13V6a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-3zm-9 1l-3 3m0 0l-3-3m3 3V6" />
+                    </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-1">בוטי תוכן וחדשות</h3>
+                <p class="text-gray-600 text-sm">הפצת תוכן אוטומטית, התראות על חדשות חמות ועדכוני בלוגים.</p>
+            </div>
+
+            <!-- Quiz & Contest Bot -->
+            <div class="p-6 bg-white rounded-2xl shadow-lg">
+                <div class="icon mx-auto">
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2-3-.895-3-2 .895-2 3-2zM9 17a3 3 0 110-6 3 3 0 010 6z" />
+                    </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-1">בוטי תחרויות וחידונים</h3>
+                <p class="text-gray-600 text-sm">הפעלת תחרויות אינטראקטיביות, דירוג משתמשים ומתן פרסים.</p>
+            </div>
+
+            <!-- Lead Generation Bot -->
+            <div class="p-6 bg-white rounded-2xl shadow-lg">
+                <div class="icon mx-auto">
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v12" />
+                    </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-1">בוטי לידים</h3>
+                <p class="text-gray-600 text-sm">איסוף פרטי לקוחות פוטנציאליים וניתוב אוטומטי למערכת CRM.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="container mx-auto p-4 md:p-8 mt-12">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800">מחירי פיתוח בוטים</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mt-2">
+                תמחור שקוף ופתרונות המותאמים לכל צורך.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- Basic Package Card -->
+            <div class="pricing-card bg-white p-6 rounded-2xl shadow-lg border border-gray-200">
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">חבילה בסיסית</h2>
+                    <p class="text-gray-500 mb-4">התחלה מצוינת לעסק קטן</p>
+                    <div class="text-4xl font-extrabold text-blue-600 mb-4">
+                        1,500 <span class="text-xl text-gray-400 font-normal">₪</span>
+                    </div>
+                </div>
+                <ul class="text-gray-700 space-y-3 mb-6">
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        בוט קמפיין פשוט
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        תמיכה עד 5,000 משתמשים
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        5 פקודות מותאמות אישית
+                    </li>
+                    <li class="flex items-center text-gray-400">
+                        <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                        ללא אינטגרציה עם מערכות תשלום
+                    </li>
+                    <li class="flex items-center text-gray-400">
+                        <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                        ללא ניהול מסדי נתונים
+                    </li>
+                </ul>
+                <a href="#contact" class="block w-full text-center bg-blue-500 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-600 transition duration-300">
+                    התחל עכשיו
+                </a>
+            </div>
+
+            <!-- Standard Package Card (Highlighted) -->
+            <div class="pricing-card bg-white p-8 rounded-2xl shadow-xl border-4 border-blue-500 relative">
+                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white text-xs font-bold py-1 px-4 rounded-full">
+                    מומלץ
+                </div>
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">חבילה סטנדרטית</h2>
+                    <p class="text-gray-500 mb-4">מושלם לעסקים צומחים</p>
+                    <div class="text-5xl font-extrabold text-blue-600 mb-4">
+                        4,500 <span class="text-xl text-gray-400 font-normal">₪</span>
+                    </div>
+                </div>
+                <ul class="text-gray-700 space-y-3 mb-6">
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        כלול בחבילה הבסיסית
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        תמיכה עד 20,000 משתמשים
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        אינטגרציה עם מערכות תשלום (Stripe, PayPal)
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        ניהול מסדי נתונים בסיסי
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        דוחות וסטטיסטיקות שימוש
+                    </li>
+                </ul>
+                <a href="#contact" class="block w-full text-center bg-blue-600 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-700 transition duration-300">
+                    התחלת עכשיו
+                </a>
+            </div>
+
+            <!-- Advanced Package Card -->
+            <div class="pricing-card bg-white p-6 rounded-2xl shadow-lg border border-gray-200">
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">חבילה מתקדמת</h2>
+                    <p class="text-gray-500 mb-4">פתרון מותאם אישית לחברות גדולות</p>
+                    <div class="text-4xl font-extrabold text-blue-600 mb-4">
+                        9,000+ <span class="text-xl text-gray-400 font-normal">₪</span>
+                    </div>
+                </div>
+                <ul class="text-gray-700 space-y-3 mb-6">
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        כלול בחבילה הסטנדרטית
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        תמיכה במספר בלתי מוגבל של משתמשים
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        אינטגרציה עם מערכות API חיצוניות
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        מערכת ניהול תוכן (CMS) ייעודית
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        תמיכה טכנית 24/7 ועדכונים
+                    </li>
+                </ul>
+                <a href="#contact" class="block w-full text-center bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-full hover:bg-gray-300 transition duration-300">
+                    דברו איתנו
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Process Section -->
+    <section id="process" class="container mx-auto p-4 md:p-8 mt-12">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-800">תהליך הפיתוח שלנו</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mt-2">
+                אנו עובדים בשלבים ברורים כדי להבטיח שהבוט שלכם יענה על כל הציפיות.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+            
+            <!-- Step 1 -->
+            <div class="p-6 rounded-2xl bg-white shadow-lg">
+                <div class="text-4xl font-extrabold text-blue-500 mb-2">1</div>
+                <h3 class="font-bold text-lg mb-1">ייעוץ ואפיון</h3>
+                <p class="text-gray-600 text-sm">פגישת היכרות והבנת הצרכים העסקיים שלך כדי לתכנן את הפתרון המושלם.</p>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="p-6 rounded-2xl bg-white shadow-lg">
+                <div class="text-4xl font-extrabold text-blue-500 mb-2">2</div>
+                <h3 class="font-bold text-lg mb-1">פיתוח ועיצוב</h3>
+                <p class="text-gray-600 text-sm">בניית הבוט והממשקים הדרושים, כולל עיצוב חוויית המשתמש.</p>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="p-6 rounded-2xl bg-white shadow-lg">
+                <div class="text-4xl font-extrabold text-blue-500 mb-2">3</div>
+                <h3 class="font-bold text-lg mb-1">בדיקות והשקה</h3>
+                <p class="text-gray-600 text-sm">בדיקות מקיפות להבטחת תקינות, ולאחר מכן השקת הבוט בפלטפורמה.</p>
+            </div>
+            
+            <!-- Step 4 -->
+            <div class="p-6 rounded-2xl bg-white shadow-lg">
+                <div class="text-4xl font-extrabold text-blue-500 mb-2">4</div>
+                <h3 class="font-bold text-lg mb-1">תמיכה ותחזוקה</h3>
+                <p class="text-gray-600 text-sm">מתן שירותי תמיכה שוטפים ועדכונים כדי לשמור על תפקוד הבוט לאורך זמן.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-blue-600 text-white p-8 md:p-12 text-center mt-12">
+        <h2 class="text-3xl font-bold mb-4">מוכנים ליצור מוצר דיגיטלי?</h2>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto mb-6">
+            צרו קשר עוד היום ונתחיל לתכנן את הפתרון המותאם אישית לעסק שלכם.
+        </p>
+        <a href="https://t.me/OSIFFIN" target="_blank" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-200 transition duration-300 shadow-lg">
+            צרו קשר בטלגרם
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 p-6 text-center text-sm">
+        <p>&copy; 2024 BotFactory. כל הזכויות שמורות.</p>
+    </footer>
+
+    <!-- JavaScript for Demos and smooth scrolling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Store Bot Demo Logic
+            const storeDemo = document.getElementById('store-demo');
+            const storeButtons = document.querySelectorAll('#store-demo + .flex .demo-btn');
+            
+            const storeState = {
+                catalog: [
+                    { id: 1, name: 'חולצה', price: 99 },
+                    { id: 2, name: 'מכנסיים', price: 149 },
+                    { id: 3, name: 'נעליים', price: 299 }
+                ],
+                cart: []
+            };
+
+            const renderStoreMessage = (message, sender = 'bot') => {
+                const messageEl = document.createElement('div');
+                messageEl.className = `p-2 rounded-lg mb-2 max-w-[80%] ${sender === 'bot' ? 'bg-gray-200 text-left self-start' : 'bg-blue-500 text-white text-right self-end'}`;
+                messageEl.innerHTML = message;
+                storeDemo.appendChild(messageEl);
+                storeDemo.scrollTop = storeDemo.scrollHeight;
+            };
+
+            const renderCatalog = () => {
+                let message = 'הנה הקטלוג שלנו:<br>';
+                storeState.catalog.forEach(item => {
+                    message += `- ${item.name} (${item.price} ₪) /add${item.id}<br>`;
+                });
+                renderStoreMessage(message);
+            };
+
+            const renderCart = () => {
+                if (storeState.cart.length === 0) {
+                    renderStoreMessage('העגלה שלך ריקה.');
+                    return;
+                }
+                let total = 0;
+                let message = 'פריטים בעגלה:<br>';
+                storeState.cart.forEach(item => {
+                    message += `- ${item.name} (${item.price} ₪)<br>`;
+                    total += item.price;
+                });
+                message += `<br>סה"כ: ${total} ₪`;
+                renderStoreMessage(message);
+            };
+
+            storeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const action = this.getAttribute('data-action');
+                    renderStoreMessage(this.textContent, 'user');
+                    setTimeout(() => {
+                        switch (action) {
+                            case 'catalog':
+                                renderCatalog();
+                                break;
+                            case 'cart':
+                                renderCart();
+                                break;
+                            case 'checkout':
+                                renderStoreMessage('עובר למסך תשלום...');
+                                break;
+                        }
+                    }, 500);
+                });
+            });
+
+            // Quiz Bot Demo Logic
+            const quizDemo = document.getElementById('quiz-demo');
+            const startQuizBtn = document.querySelector('[data-action="start-quiz"]');
+
+            const quizData = [
+                {
+                    question: 'מהי בירת יפן?',
+                    answers: ['טוקיו', 'בייג׳ינג', 'סיאול'],
+                    correct: 'טוקיו'
+                },
+                {
+                    question: 'כמה כוכבי לכת יש במערכת השמש?',
+                    answers: ['7', '8', '9'],
+                    correct: '8'
+                }
+            ];
+
+            let currentQuestionIndex = 0;
+
+            const renderQuizMessage = (message, sender = 'bot') => {
+                const messageEl = document.createElement('div');
+                messageEl.className = `p-2 rounded-lg mb-2 max-w-[80%] ${sender === 'bot' ? 'bg-gray-200 text-left self-start' : 'bg-blue-500 text-white text-right self-end'}`;
+                messageEl.innerHTML = message;
+                quizDemo.appendChild(messageEl);
+                quizDemo.scrollTop = quizDemo.scrollHeight;
+            };
+
+            const renderQuestion = () => {
+                if (currentQuestionIndex >= quizData.length) {
+                    renderQuizMessage('החידון הסתיים! כל הכבוד!');
+                    return;
+                }
+
+                const question = quizData[currentQuestionIndex];
+                renderQuizMessage(question.question);
+
+                const answersEl = document.createElement('div');
+                answersEl.className = 'flex flex-col space-y-2 mt-2 self-start';
+                question.answers.forEach(answer => {
+                    const button = document.createElement('button');
+                    button.textContent = answer;
+                    button.className = 'bg-blue-500 text-white py-2 px-4 rounded-full text-sm hover:bg-blue-600 transition';
+                    button.addEventListener('click', () => {
+                        handleAnswer(answer, question.correct);
+                    });
+                    answersEl.appendChild(button);
+                });
+                quizDemo.appendChild(answersEl);
+                quizDemo.scrollTop = quizDemo.scrollHeight;
+            };
+
+            const handleAnswer = (userAnswer, correctAnswer) => {
+                renderQuizMessage(userAnswer, 'user');
+                setTimeout(() => {
+                    if (userAnswer === correctAnswer) {
+                        renderQuizMessage('תשובה נכונה!');
+                    } else {
+                        renderQuizMessage('תשובה לא נכונה. התשובה הנכונה היא ' + correctAnswer);
+                    }
+                    currentQuestionIndex++;
+                    renderQuestion();
+                }, 500);
+            };
+
+            startQuizBtn.addEventListener('click', () => {
+                quizDemo.innerHTML = '';
+                currentQuestionIndex = 0;
+                renderQuizMessage('ברוכים הבאים לחידון!');
+                setTimeout(renderQuestion, 500);
+            });
+
+            // AI Assistant Bot Demo Logic
+            const aiDemo = document.getElementById('ai-demo');
+            const aiInput = document.getElementById('ai-input');
+            const aiSendBtn = document.getElementById('ai-send');
+
+            const aiResponses = {
+                'מה אתה יודע לעשות?': 'אני בוט שנוצר על ידי BotFactory, ויכול לעזור במגוון משימות.',
+                'כמה עולה בוט?': 'המחירים מתחילים מ-1,500 ₪, אך הם תלויים במורכבות הבוט.',
+                'איך יוצרים איתכם קשר?': 'ניתן ליצור קשר דרך הטלגרם בקישור: @OSIFFIN',
+                'היי': 'היי! איך אני יכול לעזור?',
+                'שלום': 'שלום! מה שלומך?',
+                'תודה': 'בכיף! לשירותכם תמיד.',
+                'default': 'אני לא בטוח שהבנתי. אני יכול לענות על שאלות בנוגע לשירותים שלנו.'
+            };
+
+            const renderAiMessage = (message, sender = 'bot') => {
+                const messageEl = document.createElement('div');
+                messageEl.className = `p-2 rounded-lg mb-2 max-w-[80%] ${sender === 'bot' ? 'bg-gray-200 text-left self-start' : 'bg-blue-500 text-white text-right self-end'}`;
+                messageEl.textContent = message;
+                aiDemo.appendChild(messageEl);
+                aiDemo.scrollTop = aiDemo.scrollHeight;
+            };
+
+            const handleAiInput = () => {
+                const userQuery = aiInput.value.trim();
+                if (userQuery === '') return;
+
+                renderAiMessage(userQuery, 'user');
+                aiInput.value = '';
+
+                setTimeout(() => {
+                    const botResponse = aiResponses[userQuery] || aiResponses['default'];
+                    renderAiMessage(botResponse);
+                }, 700);
+            };
+
+            aiSendBtn.addEventListener('click', handleAiInput);
+            aiInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    handleAiInput();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
